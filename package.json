@@ -10,8 +10,7 @@
     "lint": "eslint .",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "type-check": "npx tsc --noEmit",
-    "generate-colors-ts": "node ./src/app/scripts/css-hsl-vars-to-colors-in-ts.js ./src/app/styles/colors.scss ./src/app/styles/tailwind/app.colors.ts",
-    "prepare": "husky"
+    "generate-colors-ts": "node ./src/app/scripts/css-hsl-vars-to-colors-in-ts.js ./src/app/styles/colors.scss ./src/app/styles/tailwind/app.colors.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.59.20",
