@@ -3,7 +3,7 @@
 
 # Project Guidelines
 
-This document outlines the project structure and conventions for our **Next.js** application using the **Feature-Sliced Design** architecture.
+This document outlines the project structure and conventions for our **React** application using the **Feature-Sliced Design** architecture.
 
 Our goal is to maintain consistency and best practices across the project to ensure scalability and maintainability.
 
@@ -13,19 +13,20 @@ Our goal is to maintain consistency and best practices across the project to ens
 - Install Node.js version 20.0 or higher.
 
 ## Project Structure
+
 ```bash
 dts/                                             # Definition files (TypeScript types)
 │
 public/                                          # Static assets
 │
 src
-├── app/                                        # Core application logic layer (instead of FSD 'app')
+├── app/                                         # Core application logic layer
 │   ├── providers                                # ReactQueryProvider, AntConfigProvider etc.
 │   ├── styles                                   # global styles, tailwind
 │   ├── scripts                                  # additional app scripts
 │   ├── layouts                                  # app core layouts
 │
-├── pages/                                       # Page components layer (instead of FSD 'pages')
+├── pages/                                       # Page components layer
 │   ├── home/ (ui, config, lib, model, api)      # Example view slice (home)
 │   └── users/ (ui, config, lib, model, api)     # Example view slice (users)
 │
@@ -48,12 +49,13 @@ src
 ```
 
 ## Rules
+
 - **Layers**: Layers are standardized across all FSD projects. You don't have to use all of the layers, but their names are important.
 - **Slices**: Next up are slices, which partition the code by business domain. You're free to choose any names for them, and create as many as you wish. Slices make your codebase easier to navigate by keeping logically related modules close together.
-Slices cannot use other slices on the same layer, and that helps with high cohesion and low coupling.
+  Slices cannot use other slices on the same layer, and that helps with high cohesion and low coupling.
 - **Segments**: Segment names are not constrained by the standard, but there are several conventional names for the most common purposes (ui, api, model, lib, config). Usually these segments are enough for most layers, you would only create your own segments in Shared or App, but this is not a rule.
 - **Public API**: each slice should have `index.ts` file to re-export everything in that slice.
-- **Imports**: Lower layers cannot import from higher layers. (e.g *entity* layer can't import from features, widgets, pages etc.). 
+- **Imports**: Lower layers cannot import from higher layers. (e.g _entity_ layer can't import from features, widgets, pages etc.).
 
 ## Naming Conventions
 
@@ -70,4 +72,3 @@ Slices cannot use other slices on the same layer, and that helps with high cohes
 - **Types**: Use TypeScript throughout the project to ensure type safety and scalability.
 - **Linting**: Adhere to ESLint and Prettier configurations to maintain consistent code formatting and catch potential issues early.
 - **Imports**: Please use relative imports within a slice and absolute between the layers.
-
